@@ -2,6 +2,7 @@ package component
 
 import (
 	base "rank/model"
+	"strconv"
 
 	"github.com/jinzhu/gorm"
 )
@@ -99,11 +100,42 @@ func Create(record Component) (proj Component) {
 // DebugCreateTable 自动创建数据表
 // 仅供调试使用
 func DebugCreateTable() {
-	base.DB.CreateTable(&Component{})
+	if base.DB.HasTable(&Component{}) == false {
+		base.DB.CreateTable(&Component{})
+	}
 }
 
 // DebugAutoMigrate 自动迁移数据(补全缺失的列定义)
 // 仅供调试使用
 func DebugAutoMigrate() {
 	base.DB.AutoMigrate(&Component{})
+}
+
+// DebugFillRecord 初始化测试数据
+// 仅供调试使用
+func DebugFillRecord() {
+
+	var existRecordList []Component
+	base.DB.Find(&existRecordList)
+
+	startIndex := len(existRecordList)
+	if startIndex >= 50 {
+		return
+	}
+
+	for i := startIndex; i < startIndex+50; i++ {
+		indexStr := strconv.Itoa(i)
+		record := Component{
+			DisplayName: "测试项目:" + indexStr,
+			PackageName: "test-name-" + indexStr,
+			ApplyUcid:   "10086",
+			SiteURL:     "www.ke.com",
+			DevListJSON: "贝壳,链家,德佑",
+			IsAllow:     1,
+			Description: "第" + indexStr + "个测试项目",
+			Remark:      "备注:" + indexStr,
+		}
+		Create(record)
+	}
+	return
 }

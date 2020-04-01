@@ -13,6 +13,7 @@ import (
 func InitDbTable(c *gin.Context) {
 	mComponent.DebugCreateTable()
 	mComponent.DebugAutoMigrate()
+	mComponent.DebugFillRecord()
 	c.JSON(http.StatusOK, base.Success("数据表创建完毕"))
 	return
 }
