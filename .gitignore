@@ -1,0 +1,25 @@
+.vscode/
+.idea/
+.env
+go.sum
+node_modules
+*.exe
+log/*
+cache/*
+#   系统配置
+system
+#   fresh的临时缓存文件
+.tmp
+__debug_bin
+#   静态文件目录
+static
+#   构建生成的文件
+rank
+rank.tar.gz
+rank.exe
+dist
+
+# 前端代码目录
+client
+# 静态文件生成目录
+static
