@@ -3,6 +3,7 @@ module rank
 go 1.13
 
 require (
+	github.com/GO2F/Go2Fe v0.0.10 // indirect
 	github.com/casbin/casbin v1.9.1
 	github.com/fsnotify/fsnotify v1.4.7
 	github.com/gin-contrib/cors v1.3.0

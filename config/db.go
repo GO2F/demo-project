@@ -19,7 +19,7 @@ func dbInit() {
 			Host:     "localhost",
 			Port:     "3306",
 			User:     "root",
-			Password: "123456",
+			Password: "00000000",
 			Database: "go2fe-demo",
 		}
 	case Test:
@@ -27,7 +27,7 @@ func dbInit() {
 			Host:     "localhost",
 			Port:     "3306",
 			User:     "root",
-			Password: "123456",
+			Password: "00000000",
 			Database: "go2fe-demo",
 		}
 	case Prod:
@@ -37,7 +37,7 @@ func dbInit() {
 			Host:     "localhost",
 			Port:     "3306",
 			User:     "root",
-			Password: "123456",
+			Password: "00000000",
 			Database: "go2fe-demo",
 		}
 	}
